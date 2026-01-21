@@ -1,14 +1,10 @@
 import { NextResponse } from "next/server";
 
-export default function proxy(request) {
-    if(!request || !request.nextUrl){
-        return NextResponse.next();
-    }
+export default function middleware(request) {
+   
     const token = request.cookies.get('auth_token')?.value;
     const pathname = request.nextUrl.pathname;
-    if(pathname.startsWith('/api/auth/login')){
-        return NextResponse.next();
-    }
+  
     if(pathname.startsWith('/add_item') && !token){
         return NextResponse.redirect(new URL('/login', request.url));
     }
@@ -16,7 +12,7 @@ export default function proxy(request) {
     
 }
 export const config = {
-    matcher: ['/add_item', '/api/auth/login'],
+    matcher: ['/add_item/:path*'],
 }
 
 

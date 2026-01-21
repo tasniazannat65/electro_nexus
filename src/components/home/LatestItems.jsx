@@ -3,9 +3,11 @@ import ItemsCard from '../items/ItemsCard';
 import Link from 'next/link';
 
 const LatestItems = async() => {
-    const res = await fetch('http://localhost:5000/items', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/items`, {
         cache: 'no-store'
     })
+    console.log("status:", res.status);
+console.log("url:", res.url);
     const items = await res.json();
     const latestItems = items.slice(0, 8);
     return (

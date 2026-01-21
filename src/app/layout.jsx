@@ -23,18 +23,18 @@ export default function RootLayout({ children }) {
         className={`${roboto.className}  antialiased`}
       >
          <Toaster position="top-right"/>
-          <header>
+          
           <Navbar/>
-        </header>
+      
         <main className=" min-h-screen bg-base-100 pt-16">
                   {children}
                  
 
 
         </main>
-        <footer>
+        
           <Footer/>
-        </footer>
+        
       </body>
     </html>
   );

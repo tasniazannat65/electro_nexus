@@ -2,7 +2,7 @@ import ItemsCard from '@/components/items/ItemsCard';
 import React from 'react';
 
 const ItemsPage = async() => {
-    const res = await fetch('http://localhost:5000/items', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/items`, {
         cache: 'no-store'
     })
     const items = await res.json();

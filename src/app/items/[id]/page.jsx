@@ -4,7 +4,7 @@ import React from 'react';
 
 const ItemsDetail = async({params}) => {
     const {id} = await params;
-const res = await fetch(`http://localhost:5000/items/${id}`,
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/items/${id}`,
     {
         cache: 'no-store',
     }

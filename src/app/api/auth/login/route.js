@@ -8,13 +8,18 @@ export async function POST(req) {
     try {
         const {email, password} = await req.json();
         if(email === MOCK_USER.email && password === MOCK_USER.password){
-            const response = NextResponse.json({message: 'Login successful'});
-            response.cookies.set({
-                name: 'auth_token',
-                value: 'logged_in',
-                path: '/',
-                maxAge: 60 * 60 * 24,
-            })
+            const response = NextResponse.json({
+                success: true,
+                message: 'Login successful'});
+            response.cookies.set('auth_token','logged_in',
+                {
+                    httpOnly: true,
+                    path: '/',
+                    maxAge: 60 * 60 * 24,
+                    sameSite: 'lax',
+                }
+               
+            )
             return response;
         }
         return NextResponse.json({message: 'Invalid Credentials'}, {status: 401});

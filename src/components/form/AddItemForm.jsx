@@ -32,7 +32,7 @@ const AddItemForm = () => {
             stock: Number(form.stock),
             features: form.features.split(",").map(f => f.trim()),
         };
-        const res = await fetch('http://localhost:5000/items', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/items`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload),
