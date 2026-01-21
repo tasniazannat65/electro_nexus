@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
 export default function proxy(request) {
+    if(!request || !request.nextUrl){
+        return NextResponse.next();
+    }
     const token = request.cookies.get('auth_token')?.value;
     const pathname = request.nextUrl.pathname;
     if(pathname.startsWith('/api/auth/login')){
