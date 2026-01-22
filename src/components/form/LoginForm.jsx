@@ -1,5 +1,5 @@
 'use client';
-import Cookies from 'js-cookie';
+import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -8,6 +8,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [err, setErr] = useState('');
+    const {setIsLoggedIn} = useAuth();
 
     const handleLogin = async (e)=> {
         e.preventDefault();
@@ -19,18 +20,14 @@ const LoginForm = () => {
         })
         const data = await res.json();
 
-        if(res.ok){
-            Cookies.set('auth_token', 'logged_in', {
-                expires: 1,
-                secure: true,
-                sameSite: 'lax',
-                path: '/'
-            })
-            router.push('/');
+        if(!res.ok){
+            setErr(data.message || 'Login failed');
+            return;
+
+           
         }
-        else {
-            setErr(data.message || 'Login failed')
-        }
+       setIsLoggedIn(true);
+       router.push('/');
     }
  
     return (
