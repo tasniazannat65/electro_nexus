@@ -1,13 +1,12 @@
-import AddItemForm from '@/components/form/AddItemForm';
-import React from 'react';
+import AddItemForm from "@/components/form/AddItemForm";
+import React from "react";
 
 const AddItemPage = () => {
-   
-    return (
-        <div>
-            <AddItemForm/>
-        </div>
-    );
+  return (
+    <div>
+      <AddItemForm />
+    </div>
+  );
 };
 
 export default AddItemPage;

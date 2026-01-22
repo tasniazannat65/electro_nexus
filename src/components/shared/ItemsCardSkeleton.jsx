@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const ItemsCardSkeleton = () => {
-    return (
-       <div className="animate-pulse group relative bg-base-100 rounded-xl overflow-hidden shadow-lg border border-base-300/50">
+  return (
+    <div className="animate-pulse group relative bg-base-100 rounded-xl overflow-hidden shadow-lg border border-base-300/50">
       <div className="absolute top-3 left-3 z-10 bg-neutral/20 px-3 py-1 rounded-full text-xs font-semibold">
         &nbsp;
       </div>
@@ -21,7 +21,7 @@ const ItemsCardSkeleton = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default ItemsCardSkeleton;

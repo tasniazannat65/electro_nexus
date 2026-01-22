@@ -15,7 +15,6 @@ const ItemsDetailSkeleton = () => {
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          
           {/* Image Section */}
           <div className="relative">
             <div className="absolute top-4 left-4 z-10">
@@ -71,7 +70,6 @@ const ItemsDetailSkeleton = () => {
               <div className="h-20 bg-base-200 rounded-xl animate-pulse"></div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@
 - Express.js
 - MongoDB (Native Driver)
 
----
+-----
 
 ## Setup & installation
 
@@ -44,7 +44,7 @@
 
 ### Website Live URL
 
-      https://electro-nexus.vercel.app/
+     https://electro-nexus.vercel.app/
 
 ## Route Summary
 
