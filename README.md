@@ -38,7 +38,7 @@
 
 ### Clone the repository
 
-     git clone
+     git clone https://github.com/tasniazannat65/electro_nexus.git
 
      cd electronexus
 
