@@ -11,20 +11,14 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
     const pathname = usePathname();
     const [token, setToken] = useState(null);
-    const [mounted, setMounted] = useState(false);
     useEffect(()=> {
-        setMounted(true);
        setToken(Cookies.get('auth_token') || null);
        
-       const interval = setInterval(()=> {
-        setToken(Cookies.get('auth_token') || null);
-       }, 800)
-       return () => clearInterval(interval);
+       
+   
 
     }, [])
-    if(!mounted){
-        return null;
-    }
+  
     const navLinkClass = (path)=> `
     rounded-lg px-3 py-2 font-medium transition-all duration-200 ${
         pathname === path ? 'bg-primary/20 text-primary' : 'hover:bg-primary/10 hover:text-primary'

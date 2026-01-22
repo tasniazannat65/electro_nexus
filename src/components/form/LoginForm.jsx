@@ -20,8 +20,13 @@ const LoginForm = () => {
         const data = await res.json();
 
         if(res.ok){
-            Cookies.set('auth_token', 'logged_in')
-            router.push('/add_item');
+            Cookies.set('auth_token', 'logged_in', {
+                expires: 1,
+                secure: true,
+                sameSite: 'lax',
+                path: '/'
+            })
+            router.push('/');
         }
         else {
             setErr(data.message || 'Login failed')
