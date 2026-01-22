@@ -81,7 +81,7 @@ const Navbar = () => {
                             Add Item
                         
                         </Link>
-                                                                                        <LogoutButton setToken={setToken}/>
+                                                                                        <LogoutButton/>
 
 
                                 
