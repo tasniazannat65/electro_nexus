@@ -42,6 +42,10 @@
 
      cd electronexus
 
+### Website Live URL
+
+      https://electro-nexus.vercel.app/
+
 ## Route Summary
 
 ### Public Routes
