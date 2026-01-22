@@ -1,9 +1,8 @@
-import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
 export async function POST() {
-    cookies().delete('auth_token', {path: '/'});
-    return new Response(JSON.stringify({message: 'Logged out'}), {
-        status: 200,
-    })
+    const res = NextResponse.json({message: 'Logged out'});
+    res.cookies.set('auth_token', "", {maxAge: 0, path: '/'});
+    return res;
     
 }
