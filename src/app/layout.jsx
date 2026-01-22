@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/header/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "@/context/AuthContext";
 
 const roboto = Roboto(
   {
@@ -22,7 +23,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.className}  antialiased`}
       >
-         <Toaster position="top-right"/>
+       <AuthProvider>
+          <Toaster position="top-right"/>
           
           <Navbar/>
       
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
         </main>
         
           <Footer/>
+       </AuthProvider>
         
       </body>
     </html>

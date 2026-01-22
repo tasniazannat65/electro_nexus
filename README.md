@@ -24,7 +24,7 @@
 - React
 - Tailwind CSS + DaisyUI
 - react-hot-toast
-- js-cookie
+
 
 ### Backend
 

@@ -1,16 +1,15 @@
 'use client';
-import Cookies from 'js-cookie';
+import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const LogoutButton = ({setToken}) => {
     const router = useRouter();
-    const handleLogout = ()=> {
-     Cookies.remove('auth_token', {
-        path: '/',
-     });
-     setToken(null);
-        router.push('/login');
+    const {setIsLoggedIn} = useAuth();
+    const handleLogout = async()=> {
+    await fetch('/api/auth/logout', {method: 'POST'});
+    setIsLoggedIn(false);
+    router.push('/login')
     }
     return (
         <button

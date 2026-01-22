@@ -13,7 +13,7 @@ export async function POST(req) {
                 message: 'Login successful'});
             response.cookies.set('auth_token','logged_in',
                 {
-                    httpOnly: false,
+                    httpOnly: true,
                     path: '/',
                     maxAge: 60 * 60 * 24,
                     sameSite: 'lax',

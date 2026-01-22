@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-export default function middleware(request) {
+export  function middleware(request) {
    
     const token = request.cookies.get('auth_token')?.value;
-    const pathname = request.nextUrl.pathname;
+    const {pathname} = request.nextUrl;
   
     if(pathname.startsWith('/add_item') && !token){
         return NextResponse.redirect(new URL('/login', request.url));

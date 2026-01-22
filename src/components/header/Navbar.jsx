@@ -1,23 +1,16 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import NavbarMenu from '../shared/NavbarMenu';
 import Link from 'next/link';
 import LogoutButton from '../shared/LogoutButton';
-import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 
 
 const Navbar = () => {
     const pathname = usePathname();
-    const [token, setToken] = useState(null);
-    useEffect(()=> {
-       setToken(Cookies.get('auth_token') || null);
-       
-       
-   
-
-    }, [])
+   const {isLoggedIn} = useAuth();
   
     const navLinkClass = (path)=> `
     rounded-lg px-3 py-2 font-medium transition-all duration-200 ${
@@ -76,7 +69,7 @@ const Navbar = () => {
                     <div className='flex items-center gap-3'>
                 
                         {
-                            token ? (
+                            isLoggedIn ? (
                                 <>
                     <Link href={'/add_item'} 
                         className='btn btn-primary rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 font-semibold'
